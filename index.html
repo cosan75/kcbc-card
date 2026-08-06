@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KCBC 연역형 작성기 — 공유 카드</title>
+<style>
+  :root{
+    --navy:#17324d; --navy2:#1e3a8a; --blue:#2563eb; --blue-l:#dbeafe;
+    --purple:#7c3aed; --purple-l:#ede9fe; --green:#16a34a; --green-l:#dcfce7;
+    --ink:#17233a; --muted:#5b6b82; --line:#e6ebf3; --card:#fff; --bg:#eef2f8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:"Malgun Gothic","맑은 고딕",-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);-webkit-font-smoothing:antialiased;display:flex;justify-content:center;padding:20px}
+  .card{width:100%;max-width:420px;background:var(--card);border-radius:24px;overflow:hidden;
+    box-shadow:0 18px 50px rgba(15,36,60,.18)}
+
+  .hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:26px 24px 22px}
+  .kick{font-size:12px;font-weight:800;letter-spacing:.16em;color:#9fc3ff}
+  .hero h1{font-size:25px;font-weight:800;line-height:1.28;margin:8px 0 6px;letter-spacing:-.4px}
+  .hero p{font-size:13.5px;color:#c7d6ea;line-height:1.5}
+
+  .body{padding:20px 22px 8px}
+  .turn{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .pill{flex:1;border-radius:12px;padding:10px 12px;text-align:center;font-size:13px;font-weight:700;line-height:1.35}
+  .pill.old{background:#f1f5f9;color:#94a3b8;text-decoration:line-through}
+  .pill.new{background:var(--blue-l);color:var(--blue)}
+  .arrow{font-weight:900;color:var(--muted);font-size:18px}
+
+  .demo{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
+  .demo-h{background:var(--navy);color:#fff;font-size:12.5px;font-weight:700;padding:9px 14px;display:flex;justify-content:space-between;align-items:center}
+  .demo-b{padding:14px 15px}
+  .badge{display:inline-block;background:var(--purple-l);color:#5b21b6;font-size:11px;font-weight:800;padding:3px 9px;border-radius:6px;margin-bottom:7px}
+  .demo-b h2{font-size:16.5px;font-weight:800;line-height:1.3;margin-bottom:4px}
+  .std{font-size:12px;color:var(--muted);line-height:1.45;margin-bottom:12px}
+  .mini{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:12px;color:#334155;line-height:1.6}
+  .mini .lb{font-size:10.5px;font-weight:800;color:var(--blue);letter-spacing:.03em}
+  .qrow{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+  .q{flex:1;min-width:84px;border:1px solid var(--line);border-radius:9px;padding:7px 8px;background:#fff}
+  .q .t{font-size:10px;font-weight:800;padding:2px 7px;border-radius:5px;display:inline-block;margin-bottom:4px}
+  .q .t.s{background:var(--green-l);color:#166534} .q .t.c{background:var(--blue-l);color:var(--blue)}
+  .q .t.x{background:var(--purple-l);color:#5b21b6}
+  .q .d{font-size:11px;color:#475569;line-height:1.35}
+  .pass{margin-top:11px;display:flex;align-items:center;gap:8px;background:var(--green-l);border-radius:9px;padding:8px 11px}
+  .pass .m{width:20px;height:20px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+  .pass .tx{font-size:12px;font-weight:700;color:#14532d}
+
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+  .f{border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+  .f .ic{font-size:16px} .f b{display:block;font-size:12.5px;margin-top:3px} .f span{font-size:11px;color:var(--muted)}
+
+  .foot{background:#f8fafc;border-top:1px solid var(--line);padding:13px 22px;display:flex;align-items:center;gap:9px}
+  .foot .dot{width:8px;height:8px;border-radius:50%;background:var(--blue);flex:0 0 8px}
+  .foot .tx{font-size:11.5px;color:var(--muted);line-height:1.45}
+  .foot b{color:var(--ink)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="hero">
+      <div class="kick">KCBC · DEDUCTIVE TURN</div>
+      <h1>성취기준 하나면,<br>완성된 평가지가 나옵니다</h1>
+      <p>매트릭스를 조합하는 <b>귀납</b>에서, 성취기준에서 평가지를 연역하는 <b>연역</b>으로.</p>
+    </div>
+
+    <div class="body">
+      <div class="turn">
+        <div class="pill old">개념어×장르×기법<br>매트릭스 조합</div>
+        <div class="arrow">→</div>
+        <div class="pill new">성취기준 1개<br>선택 → 즉시 생성</div>
+      </div>
+
+      <div class="demo">
+        <div class="demo-h"><span>생성된 평가지</span><span>완성 결과물</span></div>
+        <div class="demo-b">
+          <span class="badge">절차·정당화형</span>
+          <h2>면담 절차를 세우고 상대·매체 고려하기</h2>
+          <div class="std">[6국01-04] 면담의 절차를 이해하고 상대와 매체를 고려하여 면담한다 · 초6 국어</div>
+          <div class="mini"><span class="lb">상황</span> 여러분은 학교 신문 기자입니다. ‘급식 조리사님’을 면담해, 절차를 정하고 상대·매체를 고려한 계획을 세워 봅시다.</div>
+          <div class="qrow">
+            <div class="q"><span class="t s">비계</span><div class="d">면담 절차 카드 순서 배열</div></div>
+            <div class="q"><span class="t c">핵심</span><div class="d">상대·매체 고려 질문 만들기</div></div>
+            <div class="q"><span class="t x">전이</span><div class="d">개념 ‘절차’를 새 맥락으로</div></div>
+          </div>
+          <div class="pass"><span class="m">✓</span><span class="tx">완성도 지표 8/8 통과 · 교사 확정 대기</span></div>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="f"><div class="ic">🧩</div><b>Assessment Compiler</b><span>주장→증거→과제(ECD) 분리·검증·차단</span></div>
+        <div class="f"><div class="ic">🗄️</div><b>자체 문항 DB</b><span>아이드리 달력에서 자란 372문항</span></div>
+        <div class="f"><div class="ic">🔄</div><b>질문 변형 렌즈</b><span>관점·조건·척도·시간 전이</span></div>
+        <div class="f"><div class="ic">📊</div><b>완성도 지표</b><span>가짜 점수 대신 통과 여부</span></div>
+      </div>
+    </div>
+
+    <div class="foot"><span class="dot"></span><span class="tx"><b>제1원칙</b> — 모든 초안은 교사가 확정합니다. AI는 완성 초안까지, 판단은 교사가.</span></div>
+  </div>
+</body>
+</html>
